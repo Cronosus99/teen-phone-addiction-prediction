@@ -10,3 +10,59 @@ Begin Milestone 1 with a 250-500-word narrative describing your original idea fo
 As a reminder, Teams is a great place to discuss your project with your peers. Feel free to solicit feedback/input (without creating a group project!) and collaborate on your projects with your peers. Each milestone will build on top of each other, so make sure you do not fall behind.
 
 I recommend building your project milestones in a Jupyter Notebook, building upon one another.
+
+## Milestone 2: Data Preparation
+
+Now that you have created your idea, located data, and have started your graphical analysis, you will move on to the data preparation process of your project. After completing Milestone 2, your data should be ready for the model building/evaluation phase.
+
+Here is a list of steps to consider performing in Milestone 2:
+
+- drop any features that are not useful for your model building and explain why they are not useful
+- perform any data extraction/selection steps
+- transform features if necessary
+- engineer new useful features
+- deal with missing data (do not just drop rows or columns without justifying this)
+- create dummy variables if necessary
+
+Explain your process at each step. You can use any methods/tools you think are most appropriate. Do what makes the most sense for your data/problem. This will vary greatly among different projects. Be careful to avoid data snooping in these steps.
+
+It is important to note that these milestones are meant to keep you on track for the final project submission. At any point, you can pivot or modify your project as needed based on what you discover. These milestones are not final versions; they are drafts of the many steps you need to complete along the way.
+
+As a reminder, Teams is a great place to discuss your project with your peers. Feel free to solicit feedback/input (without creating a group project!) and collaborate on your projects with your peers.
+
+Each milestone will build on top of each other, so make sure you do not fall behind. Submit Milestones 1 & 2 together. I recommend building your project milestones in a Jupyter Notebook, building upon one another. However, make sure it is clear where Milestone 1 ends and Milestone 2 begins. Milestone 2 is due no later than 11:59 PM on Sunday of Week 8.
+
+## Milestone 3: Model Building and Evaluation
+
+In Milestone 3, you will begin the process of selecting, building, and evaluating a model. You are required to train and evaluate at least one model in this milestone. Write step-by-step for performing each of these steps. You can use any methods/tools you think are most appropriate, but you should explain/justify why you are selecting the model(s) and evaluation metric(s) you choose. It is important to think about what type of model and metric makes sense for your problem. Again, do what makes the most sense for your project. Write a short overview/conclusion of the insights gained from your model building/evaluation.
+
+It is important to note that these milestones are meant to keep you on track for the final project submission. At any point, you can pivot or modify your project as needed based on what you discover. These milestones are not final versions; they are drafts of the many steps you need to complete along the way.
+
+As a reminder, Teams is a great place to discuss your project with your peers. Feel free to solicit feedback/input (without creating a group project!) and collaborate on your projects with your peers.
+
+Each milestone will build on top of each other, so make sure you do not fall behind. Submit Milestones 1-3 together. I recommend building your project milestones in a Jupyter Notebook, building upon one another. However, make sure it is clear where each milestone begins and ends. Milestone 3 is due no later than 11:59 PM on Sunday of Week 10.
+
+## Final Submission
+
+You have made it to the final week of the course and the time has come to submit your final project! Using your own judgment and based on the feedback you have received, update your project accordingly. Add any new code and/or analysis to your content from Milestones 1-3. Clearly note what content has been added since Milestone 3. Include this as part of your final project submission.
+
+The primary final submission for the term project is a minimum five-page project writeup, e.g., MS Word or PDF file, summarizing the details of your project. Your final submission should include the following.
+
+- Introduction
+    - Introduce the problem
+    - Justify why it is important/useful to solve this problem
+    - How would you pitch this problem to a group of stakeholders to gain buy-in to proceed?
+    - Explain where you obtained your data
+- Organized and detailed summary of Milestones 1- 3
+    - EDA; include any visuals you think are important to your project
+    - Data preparation
+    - Model building and evaluation
+- Conclusion
+    - What does the analysis/model building tell you?
+    - Is this model ready to be deployed?
+    - What are your recommendations?
+    - What are some of the potential challenges or additional opportunities that still need to be explored?
+    - To summarize, you should submit the following two items for your term project final submissions:
+
+All code, content, and analysis from Milestones 1-3 along with any updates
+Project writeup described above
