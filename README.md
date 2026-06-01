@@ -1,113 +1,119 @@
-# Predictive Maintenance Using Machine Learning
+# Teen Phone Addiction Prediction (Machine Learning Project)
 
 **Author:** Kevin Danh  
 **Program:** Master of Data Science – Bellevue University  
-**Course:** DSC 680: Applied Data Science  
+**Course:** DSC 550: Data Mining  
 
-## Overview
-This project develops a machine learning model to predict rare machine failures using sensor data. The goal is to enable proactive maintenance and reduce unexpected downtime.
+## Project Summary
 
----
+This project applies data mining and machine learning techniques to analyze teen smartphone usage patterns and predict addiction risk levels. As smartphone use among teens continues to rise, concerns have grown around excessive screen time, social media dependence, and the impact on sleep, mental health, and academic performance. This project explores those behavioral patterns and builds classification models to categorize teens into low, medium, and high addiction risk levels.
 
-## Business Problem
-Machine failures are rare but costly. Traditional maintenance strategies are inefficient, either missing failures or performing unnecessary servicing. This project aims to detect early warning signs of failure to support better maintenance decisions.
+## Project Type
+Data Mining | Machine Learning | Multiclass Classification
 
----
+## Key Objectives
+
+- Explore behavioral and demographic patterns associated with smartphone addiction
+- Engineer a categorical addiction-risk target (low / medium / high) from a continuous score
+- Build and tune classification models to predict addiction risk level
+- Identify the behavioral indicators most associated with higher risk
 
 ## Dataset
-- Source: Kaggle Predictive Maintenance Dataset  
-- ~124,000 observations with only 106 failure cases (~0.085%)  
-- Features include:
-  - Sensor metrics (metric1–metric9)
-  - Timestamp (date)
-  - Device ID  
 
-⚠️ Key challenge: **extreme class imbalance**
+- Source: Kaggle – Teen Smartphone Usage and Addiction Impact Dataset
+- Behavioral and demographic variables on teen smartphone use
 
----
+Example features include:
+
+- Daily phone usage hours
+- Social media and gaming time
+- Sleep hours
+- Academic performance indicators
+- Demographic variables (age, gender)
+
+Target variable:
+
+**Addiction risk level** — engineered from a continuous addiction score into three categories: low, medium, and high.
 
 ## Methods
 
-### Feature Engineering
-- Lag features (previous values)
-- Rolling averages (short-term trends)
-- Log transformations for skewed variables
+### Exploratory Data Analysis
+- Distribution analysis of daily usage and addiction scores
+- Comparison of addiction levels across gender
+- Relationship between phone usage, sleep, and addiction risk
+- Analysis of combined social media and gaming engagement
 
-### Models Tested
+### Data Preparation
+- Converted a continuous addiction score into a categorical target (low / medium / high) for more interpretable classification
+- Encoded categorical variables with LabelEncoder
+- Standardized continuous features with StandardScaler
+- Used a stratified train/test split to preserve class distribution in the imbalanced target
+
+### Modeling
+- Logistic Regression as a baseline model with `class_weight='balanced'`
+- Scikit-learn Pipelines and FeatureUnion to combine preprocessing steps
+- Hyperparameter tuning with RandomizedSearchCV and GridSearchCV
+- Additional models (e.g. Random Forest, K-Nearest Neighbors) compared
+
+## Evaluation
+
+Because the target classes are imbalanced, evaluation focused on the weighted F1-score rather than accuracy alone, supported by classification reports and confusion matrices.
+
+- The baseline Logistic Regression model achieved high overall accuracy with a strong weighted F1-score
+- Class-level metrics revealed weaker performance on the smallest minority class, reflecting the challenge of imbalanced data
+- Tuning and model comparison were used to find the best fit for the dataset
+
+## Key Findings
+
+- Smartphone addiction risk is driven primarily by behavioral usage patterns rather than demographics alone
+- High daily usage, reduced sleep, and simultaneous high engagement in social media and gaming are key indicators of risk
+- These behavioral signals provide a foundation for feature engineering and for designing targeted interventions
+
+## Skills Demonstrated
+
+**Data Mining & Data Science**
+- Exploratory Data Analysis (EDA)
+- Feature engineering (continuous-to-categorical target creation)
+- Handling imbalanced classes
+- Model comparison and evaluation
+
+**Machine Learning**
 - Logistic Regression
 - Random Forest
-- XGBoost (final model)
+- K-Nearest Neighbors
+- Scikit-learn Pipelines and FeatureUnion
+- Hyperparameter tuning (RandomizedSearchCV, GridSearchCV)
+- Stratified sampling and classification metrics
 
-### Handling Imbalance
-- `class_weight='balanced'`
-- `scale_pos_weight` for XGBoost
-
-### Evaluation Metrics
-- Recall (primary focus)
-- PR-AUC (important for rare events)
-- ROC-AUC
-
----
-
-## Results
-
-| Model               | ROC-AUC | PR-AUC  | Notes |
-|--------------------|--------|--------|------|
-| Logistic Regression| 0.68   | 0.004  | High recall, many false positives |
-| Random Forest      | 0.70   | 0.022  | Failed to detect failures |
-| XGBoost            | 0.76   | 0.0175 | Best overall performance |
-
-### Final Model (XGBoost + Threshold Tuning)
-- Threshold: **0.01**
-- Recall: ~24%
-- Precision: ~3%
-
-👉 The model detects some failures but produces false positives  
-👉 Tradeoff is acceptable because missing failures is more costly
-
----
-
-## Key Insights
-- Temporal features (lag & rolling) are critical
-- Failure patterns are difficult to separate from normal behavior
-- Precision–recall tradeoff is unavoidable in imbalanced problems
-
----
-
-## Tools Used
-- Python (Pandas, NumPy)
+**Tools & Technologies**
+- Python
+- Jupyter Notebook
+- Pandas
+- NumPy
 - Scikit-learn
-- XGBoost
-- Matplotlib / Seaborn
-
----
+- Matplotlib
+- Seaborn
+- GitHub
 
 ## Project Structure
 
 ```text
-predictive-maintenance-ml/
-├── predictive_maintenance_ml.ipynb     # Main analysis notebook
-├── predictive_maintenance_dataset.csv  # Dataset
+teen-phone-addiction-prediction-ml/
+├── teen_phone_addiction_prediction.ipynb   # Main analysis notebook
+├── teen_phone_addiction_dataset.csv        # Dataset
 └── README.md
 ```
 
----
-
 ## How to Run
+
 1. Clone this repository
-2. Install dependencies: `pip install pandas numpy scikit-learn xgboost matplotlib seaborn`
-3. Open `predictive_maintenance_ml.ipynb` in Jupyter and run all cells
+2. Install dependencies: `pip install pandas numpy scikit-learn matplotlib seaborn`
+3. Open `teen_phone_addiction_prediction.ipynb` in Jupyter and run all cells
 
----
+## Ethical Considerations
 
-## Future Improvements
-- Collect more failure data
-- Apply anomaly detection methods
-- Deploy real-time monitoring system
-- Add an AI-enhanced explanation layer (see [predictive-maintenance-genai](https://github.com/Cronosus99/predictive-maintenance-genai))
-
----
+This project analyzes behavioral data related to minors and mental health. The dataset is anonymized and used for educational purposes only. Predictions about addiction risk are intended as exploratory insight, not clinical or diagnostic assessment, and should not be used to label or make decisions about individuals.
 
 ## References
-Kaggle. (2023). Predictive maintenance dataset.  
-https://www.kaggle.com/datasets/hiimanshuagarwal/predictive-maintenance-dataset
+
+Sumedh. (2024). *Teen Smartphone Usage and Addiction Impact Dataset* [Data set]. Kaggle. https://www.kaggle.com/datasets/sumedh1507/teen-phone-addiction
